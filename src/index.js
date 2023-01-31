@@ -22,16 +22,19 @@ searchBox.addEventListener(
         } else if (response.length <= 10 && response.length > 1) {
           response.forEach(country => {
             countryListElement(country);
+            countryInfo.innerHTML = '';
           });
         } else {
           response.forEach(country => {
             singleCountryElement(country);
+            countryList.innerHTML = '';
           });
         }
       })
       .catch(error =>
         Notiflix.Notify.failure('Oops, there is no country with that name')
       );
+    countryList.innerHTML = '';
   }, 300)
 );
 
